@@ -1,0 +1,9 @@
+Source - https://github.com/draios/sysdig/wiki/sysdig-user-guide
+
+
+sudo sysdig -p "%evt.num %evt.rawtime.s.%evt.rawtime.ns %evt.cpu %proc.name (%proc.pid) %proc.pname (%proc.ppid) %evt.dir %evt.type cwd=%proc.cwd %evt.args latency=%evt.latency.s.%evt.latency.ns exepath=%proc.exepath %fd.filename" "(evt.type=read or evt.type=readv or evt.type=write or evt.type=writev) and proc.name!=sysdig and proc.name!=tmux and fd.type=file" -n 1000 > file8.txt
+
+
+
+sudo sysdig -p "%evt.num %evt.rawtime.s.%evt.rawtime.ns %evt.cpu %proc.name (%proc.pid) %proc.pname (%proc.ppid) %evt.dir %evt.type cwd=%proc.cwd %evt.args latency=%evt.latency exepath=%proc.exepath %fd.filename %fd.cip %fd.sip %fd.cip.name %fd.sip.name"(evt.type=read or evt.type=readv or evt.type=write or evt.type=writev) and proc.name!=sysdig and proc.name!=tmux and fd.type=file" -n 1000 > file7.txt
+
